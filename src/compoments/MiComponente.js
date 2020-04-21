@@ -14,5 +14,6 @@ class MiComponente extends React.Component{
     }
 }
 //  exportarlo par poder utilizarlo en cualquier vista
+//
 
 export default MiComponente;
