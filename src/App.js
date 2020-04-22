@@ -4,7 +4,8 @@ import './assets/css/App.css';
 
 // IMPORACIONES DE LOS COMPONENTES
 
-import MiComponete from './compoments/MiComponente'
+import MiComponete from './compoments/MiComponente';
+import Peliculas from './compoments/peliculas';
 
 
 function HolaMan(nombre,edad){
@@ -47,6 +48,8 @@ function App() {
         <section className='Componentes'>
 
           <MiComponete/>
+          
+          <Peliculas/>
 
         </section>
         <a
