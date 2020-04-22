@@ -13,7 +13,8 @@ class Peliculas extends Component{
             <h4>Soy Componente de Peliculas</h4>
 
             <MensajeEstatico/>
-            
+            <MensajeEstatico/>
+
         </div>
               
         );
