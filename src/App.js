@@ -1,15 +1,19 @@
-import React from 'react';
-import logo from './assets/images/logo.svg';
-import './assets/css/App.css';
+import React from "react";
+import logo from "./assets/images/logo.svg";
+import "./assets/css/App.css";
 
 // IMPORACIONES DE LOS COMPONENTES
 
-import MiComponete from './compoments/MiComponente';
-import Peliculas from './compoments/peliculas';
+import MiComponete from "./compoments/MiComponente";
+import Peliculas from "./compoments/peliculas";
 
+import Header from "./compoments/hearder";
+import Slider from "./compoments/slider";
+import Sidebar from "./compoments/sidebar";
+import footer from './compoments/footer';
+import Footer from "./compoments/footer";
 
-function HolaMan(nombre,edad){
-
+function HolaMan(nombre, edad) {
   // var presentacion =
   //   <div>
   //     <h2>Hola Hola soy : {nombre}</h2>
@@ -18,7 +22,7 @@ function HolaMan(nombre,edad){
 
   // SEGUNDA FORMA
 
-  var presentacion =(
+  var presentacion = (
     <div>
       <h2>Hola Hola soy : {nombre}</h2>
       <h3>Tengo : {edad} años</h3>
@@ -29,38 +33,39 @@ function HolaMan(nombre,edad){
 }
 
 function App() {
-
-  var nombre ="Pepe Man";
+  var nombre = "Pepe Man";
   var edad = 20;
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
+      <Header />
 
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p> Pagina principal de aprendiendo react js</p>
+      <Slider />
 
-        {HolaMan(nombre,edad)}
+      <div className="center">
+        <section id="content">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>
+            Edit <code>src/App.js</code> and save to reload.
+          </p>
+          <p> Pagina principal de aprendiendo react js</p>
 
-        <section className='Componentes'>
+          {HolaMan(nombre, edad)} 
 
-          <MiComponete/>
-          
-          <Peliculas/>
+          <section className="Componentes">
+            <MiComponete /> 
 
+            <Peliculas />
+          </section>
         </section>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+        <Sidebar />
+
+        <div className="clearfix"></div>
+      </div> {/*  END DIV CENTER*/ }
+
+      <Footer/>
+
     </div>
   );
 }
