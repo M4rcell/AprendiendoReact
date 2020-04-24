@@ -56,8 +56,9 @@ state={
         <p>contador : {this.state.contador}</p>
 
         <p>
-            <input type="button" value="Sumar" onClick={this.sumar.bind(this)}/>
-            <input type="button"  value="Restar"  onClick={this.restar.bind(this)}/>
+   {/*  <input type="button" value="Sumar" onClick={this.sumar.bind(this)}/>*/}
+            <input type="button" value="Sumar" onClick={this.sumar}/>
+            <input type="button"  value="Restar"  onClick={this.restar}/>
         </p>
 
       </section>
@@ -84,7 +85,7 @@ state={
 
     return presentacion;
   }
-  
+ /*  
   sumar(){
      
     //this.contador=this.contador+1;
@@ -95,6 +96,26 @@ state={
   }
 
   restar(){
+   // this.contador=this.contador-1;
+
+   this.setState({
+    contador:(this.state.contador-1)
+   });
+
+
+  } */
+  // OTRA FORMA DE DEFINER METODOS
+   
+  sumar =(e)=>{
+     
+    //this.contador=this.contador+1;
+    this.setState({
+        contador:(this.state.contador+1)
+    });
+
+  }
+
+  restar=(e)=>{
    // this.contador=this.contador-1;
 
    this.setState({
