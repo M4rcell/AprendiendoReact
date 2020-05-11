@@ -12,13 +12,18 @@ import SeccionPruebas from './compoments/seccionPruebas';
 
 
 function App() {
+
+  var butonString="Ir al blog"
  
 
   return (
     <div className="App">
       <Header />
 
-      <Slider />
+      <Slider 
+       title ="Bienvenido al Curso de React con Víctor Robles de victorroblesweb.es"
+       btn   = {butonString}
+       />
 
       <div className="center">
 
