@@ -42,6 +42,7 @@ class Peliculas extends Component{
                     <a href="#">Leer más</a>
 
                     <div class="clearfix"></div>
+                    
                 </article>
 
                 )
