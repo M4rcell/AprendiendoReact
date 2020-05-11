@@ -15,6 +15,25 @@ class Peliculas extends Component{
         nombre:"Marcel"
     };
 
+    cambiarTitulo=()=>{
+
+        var {peliculas} = this.state;
+
+        var random = Math.floor(Math.random()*4)
+
+        alert(random);
+
+        peliculas[random].titulo ="Batman Begins";
+
+
+        this.setState({
+
+            peliculas:peliculas
+
+        })
+
+    }
+
     render(){
         
         return( 
@@ -23,6 +42,10 @@ class Peliculas extends Component{
 
             <h2 className="subheader"> Peliculas </h2>
         <p> Seleccion las Mejores Peliculas de  {this.state.nombre}</p>
+
+        <div>
+            <button onClick={this.cambiarTitulo}>Cambiar Titulo de Batman</button>
+        </div>
 
         {/*** Crear Conponente de peliculas*/ }    
 
