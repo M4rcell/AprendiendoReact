@@ -9,7 +9,7 @@ import footer from './compoments/footer';
 import Footer from "./compoments/footer";
 import SeccionPruebas from './compoments/seccionPruebas';
 
-
+import Peliculas from './compoments/peliculas';
 
 function App() {
 
@@ -27,7 +27,7 @@ function App() {
 
       <div className="center">
 
-        <SeccionPruebas/>
+        <Peliculas/>
        
 
         <Sidebar />

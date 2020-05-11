@@ -3,7 +3,6 @@ import React, { Component } from "react";
 // IMPORACIONES DE LOS COMPONENTES
 
 import MiComponete from "./MiComponente";
-import Peliculas from "./peliculas";
 
 class SeccionPrueba extends Component {
 
@@ -47,8 +46,8 @@ state={
         <h2 className="subheader"> Componentes</h2>
         <section className="Componentes">
           <MiComponete />
+          <MiComponete />
 
-          <Peliculas />
         </section>
 
         <h2 className="subheader"> Estado</h2>
