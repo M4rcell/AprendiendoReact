@@ -1,69 +1,102 @@
+import React, { Component } from "react";
 
-import React, {Component} from 'react';
+import Pelicula from "./pelicula";
 
-import Pelicula from './pelicula';
+class Peliculas extends Component {
+  state = {
+    peliculas: [
+      {
+        titulo: "Puente de Espias",
+        image:
+          "https://i0.wp.com/redhistoria.com/wp-content/uploads/2018/12/puente-de-los-espias.png?w=750&ssl=1",
+      },
+      {
+        titulo: "Batman vs Superman",
+        image:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT_0cgrp9Y13yllWfYSf-AJicYMVuE-Au9p6CKBuB_bM16mZsUL&usqp=CAU",
+      },
+      {
+        titulo: "Gran Turino",
+        image: "https://pics.filmaffinity.com/Gran_Torino-278262332-large.jpg",
+      },
+      {
+        titulo: "Looper",
+        image:
+          "https://es.web.img3.acsta.net/medias/nmedia/18/92/47/73/20250845.jpg",
+      },
+    ],
+    nombre: "Marcel",
+    favorita: {},
+  };
 
-class Peliculas extends Component{
+  cambiarTitulo = () => {
+    var { peliculas } = this.state;
 
-    state ={
-        peliculas:[
-            {titulo:"Puente de Espias",image:"https://i0.wp.com/redhistoria.com/wp-content/uploads/2018/12/puente-de-los-espias.png?w=750&ssl=1"},
-            {titulo:"Batman vs Superman",image:"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT_0cgrp9Y13yllWfYSf-AJicYMVuE-Au9p6CKBuB_bM16mZsUL&usqp=CAU"},
-            {titulo:"Gran Turino" ,image:"https://pics.filmaffinity.com/Gran_Torino-278262332-large.jpg"},
-            {titulo:"Looper",image:"https://es.web.img3.acsta.net/medias/nmedia/18/92/47/73/20250845.jpg"}
-        ],
-        nombre:"Marcel"
-    };
+    var random = Math.floor(Math.random() * 4);
 
-    cambiarTitulo=()=>{
+    alert(random);
 
-        var {peliculas} = this.state;
+    peliculas[random].titulo = "Batman Begins";
 
-        var random = Math.floor(Math.random()*4)
+    this.setState({
+      peliculas: peliculas,
+    });
+  };
+  //favorita=(event)
+  favorita = (pelicula,indice) => {
+    console.log("Favorita marcada");
 
-        alert(random);
+    console.log(pelicula,indice);
 
-        peliculas[random].titulo ="Batman Begins";
+    this.setState({
+      favorita: pelicula,
+    });
+  };
 
+  render() {
 
-        this.setState({
+    var pstyle=
+        {
+            background:'green',
+            color:'white',
+            padding:'10px'
+        }
+    
+    return (
+      <div id="content" className="peliculas">
+        <h2 className="subheader"> Peliculas </h2>
 
-            peliculas:peliculas
-
-        })
-
-    }
-
-    render(){
-        
-        return( 
-             
-        <div id="content" className="peliculas">
-
-            <h2 className="subheader"> Peliculas </h2>
-        <p> Seleccion las Mejores Peliculas de  {this.state.nombre}</p>
-
+        <p> Seleccion las Mejores Peliculas de {this.state.nombre}</p>
         <div>
-            <button onClick={this.cambiarTitulo}>Cambiar Titulo de Batman</button>
+          <button onClick={this.cambiarTitulo}>Cambiar Titulo de Batman</button>
         </div>
+   
+         {/* se realiza condicionales Si viene o existe titulo muestra  */}
+        {
+            this.state.favorita.titulo &&
+            <p className="favorita" style={pstyle}>
+                <strong>La Pelicula favorite es : </strong>
+                <span>{this.state.favorita.titulo}</span>
+            </p>
+        }
 
-        {/*** Crear Conponente de peliculas*/ }    
+        
 
-        <div id="articles"  className="peliculas">       
+        {/*** Crear Conponente de peliculas*/}
 
-         {
-             this.state.peliculas.map((pelicula,i)=>{
-
-                return (
-                  
-                    <Pelicula key={i} pelicula={pelicula}/>
-                 
-                )
-
-             })
-         }
-         </div>
-            {/** 
+        <div id="articles" className="peliculas">
+          {this.state.peliculas.map((pelicula, i) => {
+            return (
+              <Pelicula
+                key={i}
+                pelicula={pelicula}
+                indice={i}
+                marcarFavorito={this.favorita}
+              />
+            );
+          })}
+        </div>
+        {/** 
                     
                                 <article class="article-item" id="article-template">
                 <div class="image-wrap">
@@ -80,11 +113,9 @@ class Peliculas extends Component{
             
            </article>
                     */}
-
-        </div>
-              
-        );
-    }
+      </div>
+    );
+  }
 }
 
 export default Peliculas;
